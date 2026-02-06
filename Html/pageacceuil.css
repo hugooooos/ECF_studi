@@ -1,0 +1,74 @@
+body {
+    color: rgb(0, 0, 0);
+    background-color: seashell;
+}
+
+header {
+    background-color: rgb(190, 89, 89);
+    border-radius: 120px;
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    gap: 10px;
+    padding: 2px;
+    box-sizing: border-box;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.nom_entreprise {
+    text-align: center;
+    font-size: 50px;
+    font-weight: 800;
+}
+
+.menu_deroulant {
+    background-color: rgba(51, 4, 4, 0.282);
+    border-radius: 80px;
+    display: grid;
+    gap: 10px;
+
+    margin: 20px;
+    box-sizing: content-box;
+    font-weight: 800;
+    font-size: 40px;
+    text-align: center;
+}
+
+.premiere_part{
+    background-color: rgb(62, 30, 155);
+    border-radius: 120px;
+    display: grid;
+    grid-template-columns: 3fr 2fr; /* 2 colonnes : texte + image */
+    gap: 20px;
+    padding: 40px;
+    margin: 20px 10px;
+}
+
+
+.image_premiere_part{
+    background-color: rgb(89, 114, 190);
+    display: flex;
+    justify-content: flex-end; /* pousse l'image à droite */
+    padding-right: 7%; /* ajuste pour viser ~70% */
+    margin-top: 50px;
+}
+.image_premiere_part_corner{
+    border-radius: 30px;
+}
+
+.texte_premiere_part{
+    background-color: rgba(225, 15, 166, 0.397);
+    display: flex;
+    margin-top: 150px;
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: 550;
+     text-align: left; /* force texte à gauche */
+    flex-direction: column;
+}
+
+.phrase_accroche{
+    margin-left: 10px;
+    font-size: 30px;
+    font-weight: 650;
+}
