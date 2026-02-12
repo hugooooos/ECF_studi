@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Mariage ~ Vite & Gourmand</title>
+    <link rel="stylesheet" type="text/css" href="css/menumariage.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap');
+    </style>
+</head>
+
+<body>
+    <!-- HEADER MODERNE -->
+    <header>
+        <div class="header_container">
+            <!-- Logo et nom -->
+            <div class="nom_entreprise">
+                <div class="logo_icon">🍽️</div>
+                <div class="entreprise_texte">
+                    <div class="entreprise_nom">Vite & Gourmand</div>
+                    <div class="entreprise_slogan">Traiteur depuis 1999</div>
+                </div>
+            </div>
+
+            <!-- Menu de navigation -->
+            <nav class="menu_deroulant">
+                <ul>
+                    <li><a href="pageaccueil.html">Accueil</a></li>
+                    <li><a href="pagemenuprincipal.html" class="active">Menus</a></li>
+                    <li><a href="pagecontact.html">Contact</a></li>
+                    <li><a href="pageconnexion.html" class="btn-connexion">Connexion</a></li>
+                </ul>
+            </nav>
+
+            <!-- Burger menu pour mobile -->
+            <div class="burger_menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="menu_detail_page">
+    <div class="menu_header">
+        <h1 class="menu_title">Menu Anniversaire</h1>
+        <p class="menu_subtitle">Un moment festif et gourmand pour célébrer votre journée</p>
+    </div>
+
+    <div class="menu_showcase">
+        <div class="carousel_container">
+            <button class="carousel_btn prev" onclick="changeSlide(-1)"><span></span></button>
+
+            <div class="carousel_images">
+                <div class="carousel_slide active" data-slide="0">
+                    <img src="images\tartare.jpg" alt="Entrée - Tartare de saumon" class="carousel_img">
+                </div>
+                <div class="carousel_slide" data-slide="1">
+                    <img src="images\supreme.jpeg" alt="Plat - Suprême de volaille" class="carousel_img">
+                </div>
+                <div class="carousel_slide" data-slide="2">
+                    <img src="images\fromage.jpg" alt="Fromages" class="carousel_img">
+                </div>
+                <div class="carousel_slide" data-slide="3">
+                    <img src="images\layercake.jpg" alt="Gâteau d'anniversaire" class="carousel_img">
+                </div>
+            </div>
+
+            <button class="carousel_btn next" onclick="changeSlide(1)"><span></span></button>
+
+            <div class="carousel_indicators">
+                <span class="indicator active" onclick="goToSlide(0)"></span>
+                <span class="indicator" onclick="goToSlide(1)"></span>
+                <span class="indicator" onclick="goToSlide(2)"></span>
+                <span class="indicator" onclick="goToSlide(3)"></span>
+            </div>
+        </div>
+
+        <div class="menu_description_box">
+            <div class="description_content active" data-content="0">
+                <h2>🥗 Entrée</h2>
+                <h3>Tartare de saumon frais, citron vert & avocat</h3>
+                <p>Une entrée fraîche et colorée, parfaite pour démarrer la fête.</p>
+                <ul class="plat_details">
+                    <li>✓ Saumon frais</li>
+                    <li>✓ Avocat mûr à point</li>
+                    <li>✓ Citron vert & coriandre</li>
+                    <li>✓ Mesclun croquant</li>
+                </ul>
+            </div>
+
+            <div class="description_content" data-content="1">
+                <h2>🍽️ Plat Principal</h2>
+                <h3>Suprême de volaille sauce forestière</h3>
+                <p>Volaille tendre accompagnée d’un gratin dauphinois et légumes de saison.</p>
+                <ul class="plat_details">
+                    <li>✓ Volaille fermière</li>
+                    <li>✓ Sauce aux champignons</li>
+                    <li>✓ Gratin maison</li>
+                    <li>✓ Légumes frais</li>
+                </ul>
+            </div>
+
+            <div class="description_content" data-content="2">
+                <h2>🧀 Fromages</h2>
+                <h3>Sélection de fromages régionaux</h3>
+                <p>Assortiment de 4 fromages accompagnés de pain artisanal.</p>
+                <ul class="plat_details">
+                    <li>✓ Fromages AOP</li>
+                    <li>✓ Pain aux céréales</li>
+                    <li>✓ Salade verte</li>
+                </ul>
+            </div>
+
+            <div class="description_content" data-content="3">
+                <h2>🎂 Dessert</h2>
+                <h3>Gâteau d’anniversaire personnalisé</h3>
+                <p>Génoise moelleuse, crème légère et décor personnalisé selon votre thème.</p>
+                <ul class="plat_details">
+                    <li>✓ Décor personnalisé</li>
+                    <li>✓ Saveur au choix</li>
+                    <li>✓ Bougies incluses</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu_recap">
+        <h2 class="recap_title">Récapitulatif du Menu Anniversaire</h2>
+
+        <div class="recap_content">
+            <div class="recap_section">
+                <h3>📋 Composition complète</h3>
+                <div class="recap_list">
+                    <div class="recap_item"><span class="item_number">1</span><div class="item_text"><strong>Entrée</strong><p>Tartare de saumon</p></div></div>
+                    <div class="recap_item"><span class="item_number">2</span><div class="item_text"><strong>Plat</strong><p>Suprême de volaille & gratin</p></div></div>
+                    <div class="recap_item"><span class="item_number">3</span><div class="item_text"><strong>Fromages</strong><p>Sélection régionale</p></div></div>
+                    <div class="recap_item"><span class="item_number">4</span><div class="item_text"><strong>Dessert</strong><p>Gâteau personnalisé</p></div></div>
+                </div>
+            </div>
+
+            <div class="recap_section">
+                <h3>⭐ Caractéristiques</h3>
+                <div class="caracteristiques_grid">
+                    <div class="carac_item"><span class="carac_icon">👥</span><div><strong>Convives</strong><p>À partir de 20 personnes</p></div></div>
+                    <div class="carac_item"><span class="carac_icon">💰</span><div><strong>Tarif</strong><p>45€ / personne</p></div></div>
+                    <div class="carac_item"><span class="carac_icon">🎨</span><div><strong>Personnalisation</strong><p>Décor au choix</p></div></div>
+                    <div class="carac_item"><span class="carac_icon">👨‍🍳</span><div><strong>Service</strong><p>Inclus</p></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="recap_actions">
+            <a href="pagecontact.html" class="btn_devis">Demander un devis</a>
+            <a href="pagemenuprincipal.html" class="btn_retour">Voir tous les menus</a>
+        </div>
+        <div class="recap_section">
+                    <h3>⚠️ Conditions importantes</h3>
+                    <div class="conditions_alert">
+                        <ul class="info_list">
+                            <li>✓ Commande à passer minimum <strong>2 semaines à l'avance</strong></li>
+                            <li>✓ Livraison uniquement entre le <strong>20 et le 26 décembre</strong></li>
+                            <li>✓ Nombre minimum de personnes : <strong>20</strong></li>
+                            <li>✓ Réduction de 10% si commande pour plus de <strong>25 personnes</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recap_actions">
+                <!-- 🎯 REDIRECTION VERS COMMANDE.HTML -->
+                <button onclick="redirectToOrder(1)" class="btn_devis">
+                    🛒 Commander ce menu
+                </button>
+            </div>
+        </div>
+</main>
+
+    <!-- Lightbox pour zoom images -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox_close">&times;</span>
+        <img src="" alt="" id="lightbox_img">
+    </div>
+
+    <footer>
+        <div class="cat_footer">
+            <div class="contact">
+                <h3>Horaires d'ouverture</h3>
+                <ul>
+                    <li><strong>Lundi - Vendredi :</strong> 9h00 - 18h00</li>
+                    <li><strong>Samedi :</strong> 10h00 - 16h00</li>
+                </ul>
+                <br>
+                <p>📧 contact@vite-et-gourmand.fr</p>
+                <p>📞 05 56 XX XX XX</p>
+                <p>📍 Bordeaux, France</p>
+            </div>
+            <div class="CGV">
+                <h3>Informations</h3>
+                <ul>
+                    <li><a href="cgv.html">Conditions Générales de Vente</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="pagecontact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="infos_legales">
+                <h3>Mentions légales</h3>
+                <ul>
+                    <li><a href="mentions-legales.html">Mentions légales</a></li>
+                    <li><a href="#">Politique des cookies</a></li>
+                </ul>
+            </div>
+            <div class="reseaux_redirect">
+                <h3>Suivez-nous</h3>
+                <div class="social_icons">
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="LinkedIn">💼</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            <p>Vite & Gourmand - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menu burger
+        function toggleMenu() {
+            const menu = document.querySelector('.menu_deroulant');
+            menu.classList.toggle('active');
+        }
+
+        // Carrousel
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel_slide');
+        const contents = document.querySelectorAll('.description_content');
+        const indicators = document.querySelectorAll('.indicator');
+
+        function showSlide(n) {
+            if (n >= slides.length) currentSlide = 0;
+            if (n < 0) currentSlide = slides.length - 1;
+            
+            // Masquer tous les slides et contenus
+            slides.forEach(slide => slide.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+            
+            // Afficher le slide et contenu actuel
+            slides[currentSlide].classList.add('active');
+            contents[currentSlide].classList.add('active');
+            indicators[currentSlide].classList.add('active');
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide >= slides.length) currentSlide = 0;
+            if (currentSlide < 0) currentSlide = slides.length - 1;
+            showSlide(currentSlide);
+        }
+
+        function goToSlide(n) {
+            currentSlide = n;
+            showSlide(currentSlide);
+        }
+
+        // Lightbox pour zoom d'images
+        const carouselImages = document.querySelectorAll('.carousel_img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox_img');
+
+        carouselImages.forEach(img => {
+            img.addEventListener('click', function(e) {
+                e.stopPropagation();
+                lightbox.style.display = 'flex';
+                lightboxImg.src = this.src;
+                lightboxImg.alt = this.alt;
+            });
+        });
+
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+        }
+
+        // Fermer lightbox avec Echap
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+    <script>
+        // Menu burger
+        function toggleMenu() {
+            const menu = document.querySelector('.menu_deroulant');
+            menu.classList.toggle('active');
+        }
+
+        // Carrousel
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel_slide');
+        const contents = document.querySelectorAll('.description_content');
+        const indicators = document.querySelectorAll('.indicator');
+
+        function showSlide(n) {
+            if (n >= slides.length) currentSlide = 0;
+            if (n < 0) currentSlide = slides.length - 1;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+
+            slides[currentSlide].classList.add('active');
+            contents[currentSlide].classList.add('active');
+            indicators[currentSlide].classList.add('active');
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide >= slides.length) currentSlide = 0;
+            if (currentSlide < 0) currentSlide = slides.length - 1;
+            showSlide(currentSlide);
+        }
+
+        function goToSlide(n) {
+            currentSlide = n;
+            showSlide(currentSlide);
+        }
+
+        // 🎯 FONCTION DE REDIRECTION VERS COMMANDE
+        function redirectToOrder(menuId) {
+            // Vérifier si l'utilisateur est connecté (simulé - à remplacer par vraie vérification session)
+            const isLoggedIn = false; // TODO: Remplacer par vérification réelle via PHP/session
+
+            if (!isLoggedIn) {
+                // Si non connecté, demander confirmation
+                if (confirm('Vous devez être connecté pour passer commande.\n\nVoulez-vous vous connecter maintenant ?')) {
+                    // Rediriger vers connexion avec URL de retour
+                    window.location.href = 'connexion.html?redirect=commande&menu=' + menuId;
+                }
+            } else {
+                // Si connecté, rediriger directement vers la page de commande avec le menu pré-sélectionné
+                window.location.href = 'commande.html?menu=' + menuId;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Menus ~ Vite & Gourmand</title>
+    <link rel="stylesheet" type="text/css" href="pagemenuprincipal.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap');
+    </style>
+</head>
+    
+<body>
+    <!-- NOUVEAU HEADER MODERNE -->
+    <header>
+        <div class="header_container">
+            <!-- Logo et nom -->
+            <div class="nom_entreprise">
+                <div class="logo_icon">🍽️</div>
+                <div class="entreprise_texte">
+                    <div class="entreprise_nom">Vite & Gourmand</div>
+                    <div class="entreprise_slogan">Traiteur depuis 1999</div>
+                </div>
+            </div>
+
+            <!-- Menu de navigation -->
+            <nav class="menu_deroulant">
+                <ul>
+                    <li><a href="pageaccueil.html">Accueil</a></li>
+                    <li><a href="pagemenuprincipal.html" class="active">Menus</a></li>
+                    <li><a href="pagecontact.html">Contact</a></li>
+                    <li><a href="pageconnexion.html" class="btn-connexion">Connexion</a></li>
+                </ul>
+            </nav>
+
+            <!-- Burger menu pour mobile -->
+            <div class="burger_menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="menus_page">
+        <!-- Introduction -->
+        <div class="menus_intro">
+            <h1>Découvrez nos menus</h1>
+            <p>Des prestations sur mesure pour tous vos événements, avec des options végétariennes et véganes</p>
+        </div>
+
+        <!-- Container des menus -->
+        <div class="menus_container">
+            
+            <!-- Menu Noël -->
+            <article class="menu_card">
+                <div class="menu_image">
+                    <img src="images/foiegras.jpg" alt="Menu de Noël">
+                    <span class="menu_badge noel">Fêtes de fin d'année</span>
+                </div>
+                <div class="menu_content">
+                    <h2 class="menu_titre">Menu de Noël</h2>
+                    <p class="menu_description">
+                        Célébrez les fêtes avec notre menu festif : foie gras, chapon farci, 
+                        bûche glacée et bien plus encore.
+                    </p>
+                    <div class="menu_caracteristiques">
+                        <span class="badge">🍖 Classique</span>
+                        <span class="badge option">🥬 Option végé</span>
+                    </div>
+                    <div class="menu_footer">
+                        <span class="menu_prix">À partir de 45€/pers</span>
+                        <a href="menunoel.html" class="btn_commander">Commander</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Menu Anniversaire -->
+            <article class="menu_card">
+                <div class="menu_image">
+                    <img src="images/supreme.jpeg" alt="Menu Anniversaire">
+                    <span class="menu_badge anniversaire">Événement</span>
+                </div>
+                <div class="menu_content">
+                    <h2 class="menu_titre">Menu Anniversaire</h2>
+                    <p class="menu_description">
+                        Buffet convivial et gourmand pour célébrer vos anniversaires en famille ou entre amis.
+                    </p>
+                    <div class="menu_caracteristiques">
+                        <span class="badge">🎉 Festif</span>
+                        <span class="badge">🥗 Végétarien</span>
+                        <span class="badge option">🌱 Option végan</span>
+                    </div>
+                    <div class="menu_footer">
+                        <span class="menu_prix">À partir de 32€/pers</span>
+                        <a href="menuanniversaire.html" class="btn_commander">Commander</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Menu Mariage -->
+            <article class="menu_card">
+                <div class="menu_image">
+                    <img src="images/tournedos.jpg" alt="Menu Mariage">
+                    <span class="menu_badge mariage">Prestige</span>
+                </div>
+                <div class="menu_content">
+                    <h2 class="menu_titre">Menu Mariage</h2>
+                    <p class="menu_description">
+                        Menu gastronomique avec service à l'assiette pour votre jour J. 
+                        Personnalisable selon vos envies.
+                    </p>
+                    <div class="menu_caracteristiques">
+                        <span class="badge">⭐ Gastronomique</span>
+                        <span class="badge">🍽️ Service complet</span>
+                        <span class="badge option">🥬 Option végé</span>
+                    </div>
+                    <div class="menu_footer">
+                        <span class="menu_prix">À partir de 75€/pers</span>
+                        <a href="menumariage.html" class="btn_commander">Commander</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Menu Entreprise -->
+            <article class="menu_card">
+                <div class="menu_image">
+                    <img src="images/burrata.jpg" alt="Menu Entreprise">
+                    <span class="menu_badge entreprise">Professionnel</span>
+                </div>
+                <div class="menu_content">
+                    <h2 class="menu_titre">Menu Entreprise</h2>
+                    <p class="menu_description">
+                        Plateaux-repas et buffets pour vos séminaires, réunions et événements professionnels.
+                    </p>
+                    <div class="menu_caracteristiques">
+                        <span class="badge">💼 Pro</span>
+                        <span class="badge">🥗 Végétarien</span>
+                        <span class="badge">🌱 Végan</span>
+                    </div>
+                    <div class="menu_footer">
+                        <span class="menu_prix">À partir de 28€/pers</span>
+                        <a href="menuentreprise.html" class="btn_commander">Commander</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Menu Pâques -->
+            <article class="menu_card">
+                <div class="menu_image">
+                    <img src="images/foiegras.jpg" alt="Menu Pâques">
+                    <span class="menu_badge paques">Printemps</span>
+                </div>
+                <div class="menu_content">
+                    <h2 class="menu_titre">Menu Pâques</h2>
+                    <p class="menu_description">
+                        Menu printanier avec agneau rôti, légumes de saison et dessert chocolaté pour Pâques.
+                    </p>
+                    <div class="menu_caracteristiques">
+                        <span class="badge">🐰 Tradition</span>
+                        <span class="badge">🍃 De saison</span>
+                        <span class="badge option">🥬 Option végé</span>
+                    </div>
+                    <div class="menu_footer">
+                        <span class="menu_prix">À partir de 38€/pers</span>
+                        <a href="menupaques.html" class="btn_commander">Commander</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Menu Cocktail -->
+            <article class="menu_card">
+                <div class="menu_image">
+                    <img src="images/dinatoiredeux.jpg" alt="Menu Cocktail">
+                    <span class="menu_badge cocktail">Apéritif</span>
+                </div>
+                <div class="menu_content">
+                    <h2 class="menu_titre">Cocktail Dinatoire</h2>
+                    <p class="menu_description">
+                        Assortiment de verrines, mini-brochettes et canapés variés pour vos cocktails.
+                    </p>
+                    <div class="menu_caracteristiques">
+                        <span class="badge">🍸 Cocktail</span>
+                        <span class="badge">🥗 Végétarien</span>
+                        <span class="badge">🌱 Végan</span>
+                    </div>
+                    <div class="menu_footer">
+                        <span class="menu_prix">À partir de 25€/pers</span>
+                        <a href="menudinatoire.html" class="btn_commander">Commander</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Menu Brunch -->
+            <article class="menu_card">
+                <div class="menu_image">
+                    <img src="images/brunchsale.jpg" alt="Menu Brunch">
+                    <span class="menu_badge brunch">Matinée</span>
+                </div>
+                <div class="menu_content">
+                    <h2 class="menu_titre">Brunch Gourmand</h2>
+                    <p class="menu_description">
+                        Brunch complet salé-sucré avec viennoiseries, œufs, salades et jus frais.
+                    </p>
+                    <div class="menu_caracteristiques">
+                        <span class="badge">☀️ Matinal</span>
+                        <span class="badge">🥗 Végétarien</span>
+                        <span class="badge option">🌱 Option végan</span>
+                    </div>
+                    <div class="menu_footer">
+                        <span class="menu_prix">À partir de 22€/pers</span>
+                        <a href="menubrunch.html" class="btn_commander">Commander</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Menu Baptême -->
+            <article class="menu_card">
+                <div class="menu_image">
+                    <img src="images/rotiveau.jpg" alt="Menu Baptême">
+                    <span class="menu_badge bapteme">Famille</span>
+                </div>
+                <div class="menu_content">
+                    <h2 class="menu_titre">Menu Baptême</h2>
+                    <p class="menu_description">
+                        Menu familial et convivial adapté à tous les âges pour célébrer ce moment spécial.
+                    </p>
+                    <div class="menu_caracteristiques">
+                        <span class="badge">👶 Famille</span>
+                        <span class="badge">🥗 Végétarien</span>
+                        <span class="badge">👨‍👩‍👧‍👦 Enfants</span>
+                    </div>
+                    <div class="menu_footer">
+                        <span class="menu_prix">À partir de 30€/pers</span>
+                        <a href="menubapteme.html" class="btn_commander">Commander</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- Section informations -->
+        <div class="menus_info">
+            <div class="info_block">
+                <h3>🌿 Engagement Bio</h3>
+                <p>Tous nos menus sont préparés avec des produits frais et bio issus de producteurs locaux</p>
+            </div>
+            <div class="info_block">
+                <h3>🎨 Personnalisation</h3>
+                <p>Chaque menu peut être adapté selon vos préférences alimentaires et le nombre de convives</p>
+            </div>
+            <div class="info_block">
+                <h3>📞 Devis gratuit</h3>
+                <p>Contactez-nous pour obtenir un devis personnalisé et discuter de votre projet</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="cat_footer">
+            <div class="contact">
+                <h3>Horaires d'ouverture</h3>
+                <ul>
+                    <li><strong>Lundi - Vendredi :</strong> 9h00 - 18h00</li>
+                    <li><strong>Samedi :</strong> 10h00 - 16h00</li>
+                </ul>
+                <br>
+                <p>📧 contact@vite-et-gourmand.fr</p>
+                <p>📞 05 56 XX XX XX</p>
+                <p>📍 Bordeaux, France</p>
+            </div>
+            <div class="CGV">
+                <h3>Informations</h3>
+                <ul>
+                    <li><a href="cgv.html">Conditions Générales de Vente</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="pagecontact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="infos_legales">
+                <h3>Mentions légales</h3>
+                <ul>
+                    <li><a href="mentions-legales.html">Mentions légales</a></li>
+                    <li><a href="#">Politique des cookies</a></li>
+                </ul>
+            </div>
+            <div class="reseaux_redirect">
+                <h3>Suivez-nous</h3>
+                <div class="social_icons">
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="LinkedIn">💼</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            <p>Vite & Gourmand - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script>
+        // Fonction pour le menu burger mobile
+        function toggleMenu() {
+            const menu = document.querySelector('.menu_deroulant');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>

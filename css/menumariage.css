@@ -1,0 +1,773 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: rgb(0, 0, 0);
+    background-color: #FAF7F0;
+    font-family: "Golos Text", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+ html, body {
+    overflow-x: hidden;
+}
+
+/* ==========================================
+   HEADER
+   ========================================== */
+header {
+    background: linear-gradient(135deg, #1a3d2e 0%, #2D5016 50%, #4A5D23 100%);
+    padding: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header_container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+.nom_entreprise {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    user-select: none;
+}
+
+.logo_icon {
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, #8FBC8F, #A8D5BA);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    box-shadow: 0 4px 15px rgba(143, 188, 143, 0.3);
+    transition: all 0.3s ease;
+}
+
+.nom_entreprise:hover .logo_icon {
+    transform: rotate(-5deg) scale(1.05);
+}
+
+.entreprise_texte {
+    display: flex;
+    flex-direction: column;
+}
+
+.entreprise_nom {
+    font-size: 32px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.entreprise_slogan {
+    font-size: 13px;
+    font-weight: 400;
+    color: #A8D5BA;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.menu_deroulant {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.menu_deroulant ul {
+    list-style: none;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.menu_deroulant ul li a {
+    text-decoration: none;
+    color: #d1c0c7;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.menu_deroulant ul li a:hover {
+    background-color: rgba(168, 213, 186, 0.15);
+    color: #ffffff;
+}
+
+.menu_deroulant ul li a.active {
+    background: linear-gradient(135deg, rgba(143, 188, 143, 0.3), rgba(168, 213, 186, 0.3));
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.menu_deroulant ul li a.btn-connexion {
+    background: linear-gradient(135deg, #8FBC8F, #A8D5BA);
+    color: #1a3d2e;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(143, 188, 143, 0.3);
+}
+
+.menu_deroulant ul li a.btn-connexion:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(143, 188, 143, 0.4);
+}
+
+.burger_menu {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.burger_menu span {
+    width: 30px;
+    height: 3px;
+    background: #ffffff;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* ==========================================
+   PAGE DÉTAIL MENU
+   ========================================== */
+.menu_detail_page {
+    flex: 1;
+    background: linear-gradient(135deg, #A8D5BA 0%, #FEFAE0 50%, #8FBC8F 100%);
+    padding: 60px 20px;
+}
+
+/* En-tête du menu */
+.menu_header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.menu_title {
+    font-size: 56px;
+    font-weight: 800;
+    color: #2D5016;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu_subtitle {
+    font-size: 20px;
+    color: #555;
+    font-style: italic;
+}
+
+/* ==========================================
+   CARROUSEL + DESCRIPTION
+   ========================================== */
+.menu_showcase {
+    max-width: 1400px;
+    margin: 0 auto 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+/* Carrousel */
+.carousel_container {
+    position: relative;
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.carousel_images {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.carousel_slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.carousel_slide.active {
+    opacity: 1;
+}
+
+.carousel_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.carousel_img:hover {
+    transform: scale(1.05);
+}
+
+/* Boutons carrousel */
+.carousel_btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(45, 80, 22, 0.8);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.carousel_btn:hover {
+    background: rgba(45, 80, 22, 1);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel_btn.prev {
+    left: 30px;
+}
+
+.carousel_btn.next {
+    right: 30px;
+}
+
+/* Indicateurs */
+.carousel_indicators {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background: #2D5016;
+    transform: scale(1.3);
+}
+
+.indicator:hover {
+    background: #4A5D23;
+}
+
+/* Description dynamique */
+.menu_description_box {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    min-height: 500px;
+    position: relative;
+}
+
+.description_content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.description_content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.description_content h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2D5016;
+    margin-bottom: 10px;
+}
+
+.description_content h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #4A5D23;
+    margin-bottom: 20px;
+}
+
+.description_content p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.plat_details {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.plat_details li {
+    font-size: 15px;
+    color: #555;
+    padding: 10px 15px;
+    background: linear-gradient(135deg, #f9f9f9, #f0f0f0);
+    border-radius: 8px;
+    border-left: 3px solid #8FBC8F;
+}
+
+/* ==========================================
+   RÉCAPITULATIF
+   ========================================== */
+.menu_recap {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 25px;
+    padding: 50px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.recap_title {
+    font-size: 36px;
+    font-weight: 800;
+    color: #2D5016;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.recap_content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.recap_section h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2D5016;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #8FBC8F;
+}
+
+/* Liste composition */
+.recap_list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.recap_item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    background: linear-gradient(135deg, #f9f9f9, #ffffff);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.recap_item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.item_number {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #2D5016, #4A5D23);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.item_text strong {
+    display: block;
+    font-size: 16px;
+    color: #2D5016;
+    margin-bottom: 5px;
+}
+
+.item_text p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Grille caractéristiques */
+.caracteristiques_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.carac_item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: linear-gradient(135deg, #f9f9f9, #ffffff);
+    border-radius: 12px;
+    border-left: 4px solid #8FBC8F;
+}
+
+.carac_icon {
+    font-size: 32px;
+    flex-shrink: 0;
+}
+
+.carac_item strong {
+    display: block;
+    font-size: 15px;
+    color: #2D5016;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.carac_item p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Liste informations */
+.info_list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.info_list li {
+    font-size: 15px;
+    color: #555;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, #f9f9f9, #f0f0f0);
+    border-radius: 10px;
+    border-left: 3px solid #8FBC8F;
+}
+
+/* Actions */
+.recap_actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.btn_devis,
+.btn_retour {
+    padding: 16px 40px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn_devis {
+    background: linear-gradient(135deg, #2D5016, #4A5D23);
+    color: white;
+    box-shadow: 0 4px 15px rgba(45, 80, 22, 0.3);
+}
+
+.btn_devis:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(45, 80, 22, 0.4);
+}
+
+.btn_retour {
+    background: white;
+    color: #2D5016;
+    border: 2px solid #2D5016;
+}
+
+.btn_retour:hover {
+    background: #2D5016;
+    color: white;
+}
+
+/* ==========================================
+   LIGHTBOX
+   ========================================== */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    animation: fadeIn 0.3s ease;
+}
+
+.lightbox_close {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    font-size: 50px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lightbox_close:hover {
+    color: #8FBC8F;
+    transform: scale(1.2);
+}
+
+#lightbox_img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 60px 20px 20px;
+    margin-top: 60px;
+}
+
+.cat_footer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+}
+
+.cat_footer h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #e67e22;
+}
+
+.cat_footer ul {
+    list-style: none;
+}
+
+.cat_footer ul li {
+    margin-bottom: 8px;
+}
+
+.cat_footer a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.cat_footer a:hover {
+    color: #e67e22;
+}
+
+.cat_footer p {
+    color: #bdc3c7;
+    margin-bottom: 8px;
+}
+
+.social_icons {
+    display: flex;
+    gap: 15px;
+    font-size: 28px;
+}
+
+.social_icons a {
+    transition: transform 0.3s ease;
+}
+
+.social_icons a:hover {
+    transform: scale(1.2);
+}
+
+.footer_bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer_bottom p {
+    color: #95a5a6;
+    font-size: 14px;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+@media (max-width: 1024px) {
+    .menu_showcase {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .recap_content {
+        grid-template-columns: 1fr;
+    }
+
+    .caracteristiques_grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .header_container {
+        padding: 15px 20px;
+    }
+
+    .entreprise_nom {
+        font-size: 26px;
+    }
+
+    .menu_deroulant {
+        display: none;
+    }
+
+    .menu_deroulant.active {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, #1a3d2e 0%, #2D5016 100%);
+        padding: 20px;
+    }
+
+    .menu_deroulant.active ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .menu_deroulant.active ul li a {
+        display: block;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .burger_menu {
+        display: flex;
+    }
+
+    .menu_title {
+        font-size: 40px;
+    }
+
+    .carousel_images {
+        height: 350px;
+    }
+
+    .carousel_btn {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .carousel_btn.prev {
+        left: 15px;
+    }
+
+    .carousel_btn.next {
+        right: 15px;
+    }
+
+    .menu_recap {
+        padding: 30px 20px;
+    }
+
+    .recap_actions {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu_title {
+        font-size: 32px;
+    }
+
+    .menu_subtitle {
+        font-size: 16px;
+    }
+
+    .carousel_images {
+        height: 250px;
+    }
+
+    .menu_description_box {
+        padding: 25px;
+    }
+
+    .description_content h2 {
+        font-size: 24px;
+    }
+
+    .recap_title {
+        font-size: 28px;
+    }
+}
