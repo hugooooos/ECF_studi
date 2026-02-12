@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Mariage ~ Vite & Gourmand</title>
+    <link rel="stylesheet" type="text/css" href="css/menumariage.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap');
+    </style>
+</head>
+
+<body>
+    <!-- HEADER MODERNE -->
+    <header>
+        <div class="header_container">
+            <!-- Logo et nom -->
+            <div class="nom_entreprise">
+                <div class="logo_icon">🍽️</div>
+                <div class="entreprise_texte">
+                    <div class="entreprise_nom">Vite & Gourmand</div>
+                    <div class="entreprise_slogan">Traiteur depuis 1999</div>
+                </div>
+            </div>
+
+            <!-- Menu de navigation -->
+            <nav class="menu_deroulant">
+                <ul>
+                    <li><a href="pageaccueil.html">Accueil</a></li>
+                    <li><a href="pagemenuprincipal.html" class="active">Menus</a></li>
+                    <li><a href="pagecontact.html">Contact</a></li>
+                    <li><a href="pageconnexion.html" class="btn-connexion">Connexion</a></li>
+                </ul>
+            </nav>
+
+            <!-- Burger menu pour mobile -->
+            <div class="burger_menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="menu_detail_page">
+    <div class="menu_header">
+        <h1 class="menu_title">Menu Dînatoire</h1>
+        <p class="menu_subtitle">Une formule conviviale et élégante pour vos soirées festives</p>
+    </div>
+
+    <div class="menu_showcase">
+        <div class="carousel_container">
+            <button class="carousel_btn prev" onclick="changeSlide(-1)"><span></span></button>
+
+            <div class="carousel_images">
+                <div class="carousel_slide active" data-slide="0">
+                    <img src="images/dinatoireun.jpg" alt="Pièces salées cocktail" class="carousel_img">
+                </div>
+                <div class="carousel_slide" data-slide="1">
+                    <img src="images/dinatoiredeux.jpg" alt="Mini burgers gourmets" class="carousel_img">
+                </div>
+                <div class="carousel_slide" data-slide="2">
+                    <img src="images/dinatoiretrois.jpg" alt="Verrines variées" class="carousel_img">
+                </div>
+                <div class="carousel_slide" data-slide="3">
+                    <img src="images/dinatoirequatre.jpg" alt="Mignardises sucrées" class="carousel_img">
+                </div>
+            </div>
+
+            <button class="carousel_btn next" onclick="changeSlide(1)"><span></span></button>
+
+            <div class="carousel_indicators">
+                <span class="indicator active" onclick="goToSlide(0)"></span>
+                <span class="indicator" onclick="goToSlide(1)"></span>
+                <span class="indicator" onclick="goToSlide(2)"></span>
+                <span class="indicator" onclick="goToSlide(3)"></span>
+            </div>
+        </div>
+
+        <div class="menu_description_box">
+            <div class="description_content active" data-content="0">
+                <h2>🥟 Pièces salées</h2>
+                <h3>Assortiment de bouchées gourmandes</h3>
+                <p>
+                    Sélection variée de pièces cocktail raffinées, idéales pour un moment 
+                    convivial autour d’un verre.
+                </p>
+                <ul class="plat_details">
+                    <li>✓ Feuilletés apéritifs</li>
+                    <li>✓ Mini brochettes tomate & mozzarella</li>
+                    <li>✓ Wraps saumon fromage frais</li>
+                    <li>✓ Mini quiches maison</li>
+                </ul>
+            </div>
+
+            <div class="description_content" data-content="1">
+                <h2>🍔 Pièces chaudes</h2>
+                <h3>Mini burgers & finger food</h3>
+                <p>
+                    Des bouchées généreuses et modernes, préparées avec des produits frais.
+                </p>
+                <ul class="plat_details">
+                    <li>✓ Mini burgers bœuf cheddar</li>
+                    <li>✓ Nuggets de poulet croustillants</li>
+                    <li>✓ Accras de morue</li>
+                    <li>✓ Sauces maison</li>
+                </ul>
+            </div>
+
+            <div class="description_content" data-content="2">
+                <h2>🥗 Verrines fraîches</h2>
+                <h3>Verrines salées et créatives</h3>
+                <p>
+                    Des recettes élégantes présentées en verrines individuelles.
+                </p>
+                <ul class="plat_details">
+                    <li>✓ Tartare de saumon</li>
+                    <li>✓ Guacamole & crevettes</li>
+                    <li>✓ Salade italienne</li>
+                    <li>✓ Crème de légumes de saison</li>
+                </ul>
+            </div>
+
+            <div class="description_content" data-content="3">
+                <h2>🍰 Mignardises sucrées</h2>
+                <h3>Assortiment de douceurs</h3>
+                <p>
+                    Une touche sucrée pour terminer la soirée en beauté.
+                </p>
+                <ul class="plat_details">
+                    <li>✓ Mini éclairs chocolat & café</li>
+                    <li>✓ Macarons assortis</li>
+                    <li>✓ Verrines tiramisu</li>
+                    <li>✓ Brochettes de fruits frais</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu_recap">
+        <h2 class="recap_title">Récapitulatif du Menu Dînatoire</h2>
+
+        <div class="recap_content">
+            <div class="recap_section">
+                <h3>📋 Composition complète</h3>
+                <div class="recap_list">
+                    <div class="recap_item">
+                        <span class="item_number">1</span>
+                        <div class="item_text">
+                            <strong>Pièces salées</strong>
+                            <p>Assortiment de bouchées froides</p>
+                        </div>
+                    </div>
+                    <div class="recap_item">
+                        <span class="item_number">2</span>
+                        <div class="item_text">
+                            <strong>Pièces chaudes</strong>
+                            <p>Mini burgers & finger food</p>
+                        </div>
+                    </div>
+                    <div class="recap_item">
+                        <span class="item_number">3</span>
+                        <div class="item_text">
+                            <strong>Verrines</strong>
+                            <p>Créations fraîches individuelles</p>
+                        </div>
+                    </div>
+                    <div class="recap_item">
+                        <span class="item_number">4</span>
+                        <div class="item_text">
+                            <strong>Desserts</strong>
+                            <p>Mignardises sucrées variées</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recap_section">
+                <h3>⭐ Caractéristiques</h3>
+                <div class="caracteristiques_grid">
+                    <div class="carac_item">
+                        <span class="carac_icon">🎉</span>
+                        <div>
+                            <strong>Ambiance</strong>
+                            <p>Conviviale et festive</p>
+                        </div>
+                    </div>
+                    <div class="carac_item">
+                        <span class="carac_icon">👥</span>
+                        <div>
+                            <strong>Convives</strong>
+                            <p>À partir de 25 personnes</p>
+                        </div>
+                    </div>
+                    <div class="carac_item">
+                        <span class="carac_icon">💰</span>
+                        <div>
+                            <strong>Tarif</strong>
+                            <p>35€ / personne</p>
+                        </div>
+                    </div>
+                    <div class="carac_item">
+                        <span class="carac_icon">🥂</span>
+                        <div>
+                            <strong>Boissons</strong>
+                            <p>Forfait cocktail possible</p>
+                        </div>
+                    </div>
+                    <div class="carac_item">
+                        <span class="carac_icon">👨‍🍳</span>
+                        <div>
+                            <strong>Service</strong>
+                            <p>Personnel inclus</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recap_section">
+                <h3>📝 Informations importantes</h3>
+                <ul class="info_list">
+                    <li>✓ Installation et dressage inclus</li>
+                    <li>✓ Adaptation possible aux régimes alimentaires</li>
+                    <li>✓ Option animation culinaire disponible</li>
+                    <li>✓ Vaisselle et matériel fournis</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="recap_actions">
+            <a href="pagecontact.html" class="btn_devis">Demander un devis</a>
+            <a href="pagemenuprincipal.html" class="btn_retour">Voir tous les menus</a>
+        </div>
+    </div>
+</main>
+    <!-- Lightbox pour zoom images -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox_close">&times;</span>
+        <img src="" alt="" id="lightbox_img">
+    </div>
+
+    <footer>
+        <div class="cat_footer">
+            <div class="contact">
+                <h3>Horaires d'ouverture</h3>
+                <ul>
+                    <li><strong>Lundi - Vendredi :</strong> 9h00 - 18h00</li>
+                    <li><strong>Samedi :</strong> 10h00 - 16h00</li>
+                </ul>
+                <br>
+                <p>📧 contact@vite-et-gourmand.fr</p>
+                <p>📞 05 56 XX XX XX</p>
+                <p>📍 Bordeaux, France</p>
+            </div>
+            <div class="CGV">
+                <h3>Informations</h3>
+                <ul>
+                    <li><a href="cgv.html">Conditions Générales de Vente</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="pagecontact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="infos_legales">
+                <h3>Mentions légales</h3>
+                <ul>
+                    <li><a href="mentions-legales.html">Mentions légales</a></li>
+                    <li><a href="#">Politique des cookies</a></li>
+                </ul>
+            </div>
+            <div class="reseaux_redirect">
+                <h3>Suivez-nous</h3>
+                <div class="social_icons">
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="LinkedIn">💼</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            <p>Vite & Gourmand - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menu burger
+        function toggleMenu() {
+            const menu = document.querySelector('.menu_deroulant');
+            menu.classList.toggle('active');
+        }
+
+        // Carrousel
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel_slide');
+        const contents = document.querySelectorAll('.description_content');
+        const indicators = document.querySelectorAll('.indicator');
+
+        function showSlide(n) {
+            if (n >= slides.length) currentSlide = 0;
+            if (n < 0) currentSlide = slides.length - 1;
+            
+            // Masquer tous les slides et contenus
+            slides.forEach(slide => slide.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+            
+            // Afficher le slide et contenu actuel
+            slides[currentSlide].classList.add('active');
+            contents[currentSlide].classList.add('active');
+            indicators[currentSlide].classList.add('active');
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide >= slides.length) currentSlide = 0;
+            if (currentSlide < 0) currentSlide = slides.length - 1;
+            showSlide(currentSlide);
+        }
+
+        function goToSlide(n) {
+            currentSlide = n;
+            showSlide(currentSlide);
+        }
+
+        // Lightbox pour zoom d'images
+        const carouselImages = document.querySelectorAll('.carousel_img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox_img');
+
+        carouselImages.forEach(img => {
+            img.addEventListener('click', function(e) {
+                e.stopPropagation();
+                lightbox.style.display = 'flex';
+                lightboxImg.src = this.src;
+                lightboxImg.alt = this.alt;
+            });
+        });
+
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+        }
+
+        // Fermer lightbox avec Echap
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+
+</html>

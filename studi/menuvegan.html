@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Mariage ~ Vite & Gourmand</title>
+    <link rel="stylesheet" type="text/css" href="css/menumariage.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap');
+    </style>
+</head>
+
+<body>
+    <!-- HEADER MODERNE -->
+    <header>
+        <div class="header_container">
+            <!-- Logo et nom -->
+            <div class="nom_entreprise">
+                <div class="logo_icon">🍽️</div>
+                <div class="entreprise_texte">
+                    <div class="entreprise_nom">Vite & Gourmand</div>
+                    <div class="entreprise_slogan">Traiteur depuis 1999</div>
+                </div>
+            </div>
+
+            <!-- Menu de navigation -->
+            <nav class="menu_deroulant">
+                <ul>
+                    <li><a href="pageaccueil.html">Accueil</a></li>
+                    <li><a href="pagemenuprincipal.html" class="active">Menus</a></li>
+                    <li><a href="pagecontact.html">Contact</a></li>
+                    <li><a href="pageconnexion.html" class="btn-connexion">Connexion</a></li>
+                </ul>
+            </nav>
+
+            <!-- Burger menu pour mobile -->
+            <div class="burger_menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="menu_detail_page">
+    <div class="menu_header">
+        <h1 class="menu_title">Menu Vegan</h1>
+        <p class="menu_subtitle">Une expérience végétale moderne, créative et raffinée</p>
+    </div>
+
+    <div class="menu_showcase">
+        <div class="carousel_container">
+            <button class="carousel_btn prev" onclick="changeSlide(-1)"><span></span></button>
+
+            <div class="carousel_images">
+                <div class="carousel_slide active" data-slide="0">
+                    <img src="images/" alt="Entrée vegan gastronomique" class="carousel_img">
+                </div>
+                <div class="carousel_slide" data-slide="1">
+                    <img src="vegan-plat.jpg" alt="Plat vegan moderne" class="carousel_img">
+                </div>
+                <div class="carousel_slide" data-slide="2">
+                    <img src="vegan-fromage.jpg" alt="Fromages végétaux" class="carousel_img">
+                </div>
+                <div class="carousel_slide" data-slide="3">
+                    <img src="vegan-dessert.jpg" alt="Dessert vegan raffiné" class="carousel_img">
+                </div>
+            </div>
+
+            <button class="carousel_btn next" onclick="changeSlide(1)"><span></span></button>
+
+            <div class="carousel_indicators">
+                <span class="indicator active" onclick="goToSlide(0)"></span>
+                <span class="indicator" onclick="goToSlide(1)"></span>
+                <span class="indicator" onclick="goToSlide(2)"></span>
+                <span class="indicator" onclick="goToSlide(3)"></span>
+            </div>
+        </div>
+
+        <div class="menu_description_box">
+            <div class="description_content active" data-content="0">
+                <h2>🥗 Entrée</h2>
+                <h3>Carpaccio de betterave, crème de cajou & agrumes</h3>
+                <p>
+                    Une entrée colorée et raffinée associant la douceur de la betterave 
+                    à une crème onctueuse de noix de cajou et des suprêmes d’agrumes.
+                </p>
+                <ul class="plat_details">
+                    <li>✓ Betteraves rôties</li>
+                    <li>✓ Crème de cajou maison</li>
+                    <li>✓ Zestes d’orange & pamplemousse</li>
+                    <li>✓ Pousses fraîches</li>
+                </ul>
+            </div>
+
+            <div class="description_content" data-content="1">
+                <h2>🍽️ Plat Principal</h2>
+                <h3>Risotto crémeux aux champignons & truffe</h3>
+                <p>
+                    Risotto arborio lié au lait végétal, champignons sautés 
+                    et huile de truffe pour une touche gastronomique.
+                </p>
+                <ul class="plat_details">
+                    <li>✓ Riz arborio</li>
+                    <li>✓ Champignons frais</li>
+                    <li>✓ Crème végétale</li>
+                    <li>✓ Huile de truffe</li>
+                </ul>
+            </div>
+
+            <div class="description_content" data-content="2">
+                <h2>🧀 Alternative fromagère</h2>
+                <h3>Sélection de fromages végétaux artisanaux</h3>
+                <p>
+                    Assortiment de faux-mages à base de noix et d’amandes, 
+                    accompagnés de pain aux graines et chutney maison.
+                </p>
+                <ul class="plat_details">
+                    <li>✓ Fromage affiné aux noix de cajou</li>
+                    <li>✓ Spécialité végétale aux herbes</li>
+                    <li>✓ Pain artisanal</li>
+                    <li>✓ Chutney de fruits</li>
+                </ul>
+            </div>
+
+            <div class="description_content" data-content="3">
+                <h2>🍫 Dessert</h2>
+                <h3>Mousse chocolat noir & éclats de noisettes</h3>
+                <p>
+                    Mousse intense au chocolat noir 70% à base d’aquafaba, 
+                    servie avec éclats de noisettes torréfiées.
+                </p>
+                <ul class="plat_details">
+                    <li>✓ Chocolat noir premium</li>
+                    <li>✓ Aquafaba montée</li>
+                    <li>✓ Noisettes torréfiées</li>
+                    <li>✓ Coulis de fruits rouges</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu_recap">
+        <h2 class="recap_title">Récapitulatif du Menu Vegan</h2>
+
+        <div class="recap_content">
+            <div class="recap_section">
+                <h3>📋 Composition complète</h3>
+                <div class="recap_list">
+                    <div class="recap_item">
+                        <span class="item_number">1</span>
+                        <div class="item_text">
+                            <strong>Entrée</strong>
+                            <p>Carpaccio de betterave & crème de cajou</p>
+                        </div>
+                    </div>
+                    <div class="recap_item">
+                        <span class="item_number">2</span>
+                        <div class="item_text">
+                            <strong>Plat</strong>
+                            <p>Risotto aux champignons & truffe</p>
+                        </div>
+                    </div>
+                    <div class="recap_item">
+                        <span class="item_number">3</span>
+                        <div class="item_text">
+                            <strong>Fromages végétaux</strong>
+                            <p>Sélection artisanale</p>
+                        </div>
+                    </div>
+                    <div class="recap_item">
+                        <span class="item_number">4</span>
+                        <div class="item_text">
+                            <strong>Dessert</strong>
+                            <p>Mousse chocolat noir vegan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recap_section">
+                <h3>⭐ Caractéristiques</h3>
+                <div class="caracteristiques_grid">
+                    <div class="carac_item">
+                        <span class="carac_icon">🌱</span>
+                        <div>
+                            <strong>100% végétal</strong>
+                            <p>Sans produits d’origine animale</p>
+                        </div>
+                    </div>
+                    <div class="carac_item">
+                        <span class="carac_icon">👥</span>
+                        <div>
+                            <strong>Convives</strong>
+                            <p>À partir de 20 personnes</p>
+                        </div>
+                    </div>
+                    <div class="carac_item">
+                        <span class="carac_icon">💰</span>
+                        <div>
+                            <strong>Tarif</strong>
+                            <p>52€ / personne</p>
+                        </div>
+                    </div>
+                    <div class="carac_item">
+                        <span class="carac_icon">🌿</span>
+                        <div>
+                            <strong>Produits</strong>
+                            <p>Bio & locaux privilégiés</p>
+                        </div>
+                    </div>
+                    <div class="carac_item">
+                        <span class="carac_icon">👨‍🍳</span>
+                        <div>
+                            <strong>Service</strong>
+                            <p>Personnel inclus</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recap_section">
+                <h3>📝 Informations importantes</h3>
+                <ul class="info_list">
+                    <li>✓ Cuisine créative et gastronomique</li>
+                    <li>✓ Adaptation possible sans gluten</li>
+                    <li>✓ Dégustation sur demande</li>
+                    <li>✓ Vaisselle et mise en place incluses</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="recap_actions">
+            <a href="pagecontact.html" class="btn_devis">Demander un devis</a>
+            <a href="pagemenuprincipal.html" class="btn_retour">Voir tous les menus</a>
+        </div>
+    </div>
+</main>
+
+    <!-- Lightbox pour zoom images -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox_close">&times;</span>
+        <img src="" alt="" id="lightbox_img">
+    </div>
+
+    <footer>
+        <div class="cat_footer">
+            <div class="contact">
+                <h3>Horaires d'ouverture</h3>
+                <ul>
+                    <li><strong>Lundi - Vendredi :</strong> 9h00 - 18h00</li>
+                    <li><strong>Samedi :</strong> 10h00 - 16h00</li>
+                </ul>
+                <br>
+                <p>📧 contact@vite-et-gourmand.fr</p>
+                <p>📞 05 56 XX XX XX</p>
+                <p>📍 Bordeaux, France</p>
+            </div>
+            <div class="CGV">
+                <h3>Informations</h3>
+                <ul>
+                    <li><a href="cgv.html">Conditions Générales de Vente</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="pagecontact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="infos_legales">
+                <h3>Mentions légales</h3>
+                <ul>
+                    <li><a href="mentions-legales.html">Mentions légales</a></li>
+                    <li><a href="#">Politique des cookies</a></li>
+                </ul>
+            </div>
+            <div class="reseaux_redirect">
+                <h3>Suivez-nous</h3>
+                <div class="social_icons">
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="LinkedIn">💼</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            <p>Vite & Gourmand - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menu burger
+        function toggleMenu() {
+            const menu = document.querySelector('.menu_deroulant');
+            menu.classList.toggle('active');
+        }
+
+        // Carrousel
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel_slide');
+        const contents = document.querySelectorAll('.description_content');
+        const indicators = document.querySelectorAll('.indicator');
+
+        function showSlide(n) {
+            if (n >= slides.length) currentSlide = 0;
+            if (n < 0) currentSlide = slides.length - 1;
+            
+            // Masquer tous les slides et contenus
+            slides.forEach(slide => slide.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+            
+            // Afficher le slide et contenu actuel
+            slides[currentSlide].classList.add('active');
+            contents[currentSlide].classList.add('active');
+            indicators[currentSlide].classList.add('active');
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide >= slides.length) currentSlide = 0;
+            if (currentSlide < 0) currentSlide = slides.length - 1;
+            showSlide(currentSlide);
+        }
+
+        function goToSlide(n) {
+            currentSlide = n;
+            showSlide(currentSlide);
+        }
+
+        // Lightbox pour zoom d'images
+        const carouselImages = document.querySelectorAll('.carousel_img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox_img');
+
+        carouselImages.forEach(img => {
+            img.addEventListener('click', function(e) {
+                e.stopPropagation();
+                lightbox.style.display = 'flex';
+                lightboxImg.src = this.src;
+                lightboxImg.alt = this.alt;
+            });
+        });
+
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+        }
+
+        // Fermer lightbox avec Echap
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+
+</html>

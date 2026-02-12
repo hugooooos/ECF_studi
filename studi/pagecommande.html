@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commander ~ Vite & Gourmand</title>
+    <link rel="stylesheet" type="text/css" href="css/pagecommande.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap');
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header_container">
+            <div class="nom_entreprise">
+                <div class="logo_icon">🍽️</div>
+                <div class="entreprise_texte">
+                    <div class="entreprise_nom">Vite & Gourmand</div>
+                    <div class="entreprise_slogan">Traiteur depuis 1999</div>
+                </div>
+            </div>
+            <nav class="menu_deroulant">
+                <ul>
+                    <li><a href="pageaccueil.html">Accueil</a></li>
+                    <li><a href="pagemenus.html">Menus</a></li>
+                    <li><a href="pagecontact.html">Contact</a></li>
+                    <li><a href="pageconnexion.html" class="btn-connexion">Connexion</a></li>
+                </ul>
+            </nav>
+            <div class="burger_menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="commande_page">
+        <!-- Progression -->
+        <div class="progress_bar">
+            <div class="progress_step active">
+                <div class="step_number">1</div>
+                <div class="step_label">Informations</div>
+            </div>
+            <div class="progress_step">
+                <div class="step_number">2</div>
+                <div class="step_label">Menu & Détails</div>
+            </div>
+            <div class="progress_step">
+                <div class="step_number">3</div>
+                <div class="step_label">Récapitulatif</div>
+            </div>
+        </div>
+
+        <div class="commande_container">
+            <!-- ÉTAPE 1: Informations client -->
+            <div class="step_content active" id="step1">
+                <h2 class="step_title">Vos informations</h2>
+                
+                <form class="commande_form" id="form_step1">
+                    <div class="form_row">
+                        <div class="input_group">
+                            <label for="nom">Nom *</label>
+                            <input type="text" id="nom" name="nom" value="Dupont" required>
+                        </div>
+                        <div class="input_group">
+                            <label for="prenom">Prénom *</label>
+                            <input type="text" id="prenom" name="prenom" value="Jean" required>
+                        </div>
+                    </div>
+
+                    <div class="form_row">
+                        <div class="input_group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" value="jean.dupont@email.fr" required>
+                        </div>
+                        <div class="input_group">
+                            <label for="telephone">Téléphone (GSM) *</label>
+                            <input type="tel" id="telephone" name="telephone" value="06 12 34 56 78" required>
+                        </div>
+                    </div>
+
+                    <div class="input_group">
+                        <label for="adresse">Adresse de livraison *</label>
+                        <input type="text" id="adresse" name="adresse" placeholder="Numéro et nom de rue" required>
+                    </div>
+
+                    <div class="form_row">
+                        <div class="input_group">
+                            <label for="code_postal">Code postal *</label>
+                            <input type="text" id="code_postal" name="code_postal" placeholder="33000" required>
+                        </div>
+                        <div class="input_group">
+                            <label for="ville">Ville *</label>
+                            <input type="text" id="ville" name="ville" placeholder="Bordeaux" required>
+                        </div>
+                    </div>
+
+                    <div class="form_row">
+                        <div class="input_group">
+                            <label for="date_livraison">Date de livraison *</label>
+                            <input type="date" id="date_livraison" name="date_livraison" required>
+                        </div>
+                        <div class="input_group">
+                            <label for="heure_livraison">Heure souhaitée *</label>
+                            <input type="time" id="heure_livraison" name="heure_livraison" required>
+                        </div>
+                    </div>
+
+                    <div class="input_group">
+                        <label for="lieu_evenement">Lieu de l'événement</label>
+                        <input type="text" id="lieu_evenement" name="lieu_evenement" placeholder="Ex: Salle des fêtes, Domicile...">
+                    </div>
+
+                    <div class="alert_info">
+                        <strong>ℹ️ Frais de livraison :</strong>
+                        <p>5€ à Bordeaux • 5€ + 0,59€/km en dehors de Bordeaux</p>
+                    </div>
+
+                    <button type="button" class="btn_next" onclick="nextStep(2)">
+                        Continuer
+                        <span>→</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- ÉTAPE 2: Choix menu et nombre de personnes -->
+            <div class="step_content" id="step2">
+                <h2 class="step_title">Choix du menu</h2>
+
+                <div class="menu_selection">
+                    <div class="menu_selected_card">
+                        <img src="menu-mariage.jpg" alt="Menu sélectionné">
+                        <div class="menu_selected_info">
+                            <h3 id="selected_menu_name">Menu Mariage</h3>
+                            <p class="menu_selected_desc">Menu gastronomique avec foie gras, filet de bœuf Rossini...</p>
+                            <div class="menu_badges">
+                                <span class="badge">⭐ Gastronomique</span>
+                                <span class="badge">🍽️ Service complet</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn_change_menu" onclick="openMenuSelector()">
+                        Changer de menu
+                    </button>
+                </div>
+
+                <form class="commande_form" id="form_step2">
+                    <div class="personnes_section">
+                        <div class="input_group">
+                            <label for="nb_personnes">Nombre de personnes *</label>
+                            <div class="number_input">
+                                <button type="button" onclick="decrementPersonnes()">−</button>
+                                <input type="number" id="nb_personnes" name="nb_personnes" value="50" min="50" required>
+                                <button type="button" onclick="incrementPersonnes()">+</button>
+                            </div>
+                            <small class="input_help" id="min_personnes_help">Minimum : 50 personnes pour ce menu</small>
+                        </div>
+
+                        <div class="prix_preview">
+                            <div class="prix_line">
+                                <span>Prix unitaire :</span>
+                                <strong id="prix_unitaire">75,00 €</strong>
+                            </div>
+                            <div class="prix_line">
+                                <span>Nombre de personnes :</span>
+                                <strong id="display_nb_personnes">50</strong>
+                            </div>
+                            <div class="prix_line reduction" id="reduction_line" style="display: none;">
+                                <span>Réduction 10% (+ de 5 pers) :</span>
+                                <strong id="montant_reduction">- 0,00 €</strong>
+                            </div>
+                            <div class="prix_separator"></div>
+                            <div class="prix_line total">
+                                <span>Sous-total menu :</span>
+                                <strong id="sous_total_menu">3 750,00 €</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input_group">
+                        <label for="remarques">Remarques ou demandes particulières</label>
+                        <textarea id="remarques" name="remarques" rows="4" placeholder="Allergies, préférences, organisation spécifique..."></textarea>
+                    </div>
+
+                    <div class="alert_warning">
+                        <strong>⚠️ Conditions importantes :</strong>
+                        <ul>
+                            <li>Commande à passer au minimum 3 mois à l'avance</li>
+                            <li>Un acompte de 30% sera demandé à la confirmation</li>
+                            <li>Annulation gratuite jusqu'à 1 mois avant l'événement</li>
+                        </ul>
+                    </div>
+
+                    <div class="step_buttons">
+                        <button type="button" class="btn_prev" onclick="prevStep(1)">
+                            <span>←</span>
+                            Retour
+                        </button>
+                        <button type="button" class="btn_next" onclick="nextStep(3)">
+                            Continuer
+                            <span>→</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- ÉTAPE 3: Récapitulatif et validation -->
+            <div class="step_content" id="step3">
+                <h2 class="step_title">Récapitulatif de votre commande</h2>
+
+                <div class="recap_sections">
+                    <!-- Client -->
+                    <div class="recap_card">
+                        <h3>👤 Informations client</h3>
+                        <div class="recap_grid">
+                            <div class="recap_item">
+                                <span class="recap_label">Nom :</span>
+                                <span class="recap_value" id="recap_nom">-</span>
+                            </div>
+                            <div class="recap_item">
+                                <span class="recap_label">Email :</span>
+                                <span class="recap_value" id="recap_email">-</span>
+                            </div>
+                            <div class="recap_item">
+                                <span class="recap_label">Téléphone :</span>
+                                <span class="recap_value" id="recap_telephone">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Livraison -->
+                    <div class="recap_card">
+                        <h3>📍 Livraison</h3>
+                        <div class="recap_grid">
+                            <div class="recap_item">
+                                <span class="recap_label">Adresse :</span>
+                                <span class="recap_value" id="recap_adresse">-</span>
+                            </div>
+                            <div class="recap_item">
+                                <span class="recap_label">Date & heure :</span>
+                                <span class="recap_value" id="recap_date_heure">-</span>
+                            </div>
+                            <div class="recap_item">
+                                <span class="recap_label">Lieu :</span>
+                                <span class="recap_value" id="recap_lieu">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="recap_card">
+                        <h3>🍽️ Menu sélectionné</h3>
+                        <div class="recap_grid">
+                            <div class="recap_item">
+                                <span class="recap_label">Menu :</span>
+                                <span class="recap_value" id="recap_menu">Menu Mariage</span>
+                            </div>
+                            <div class="recap_item">
+                                <span class="recap_label">Nombre de personnes :</span>
+                                <span class="recap_value" id="recap_nb_personnes">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tarification -->
+                    <div class="recap_card highlight">
+                        <h3>💰 Détail de la facturation</h3>
+                        <div class="tarif_detail">
+                            <div class="tarif_line">
+                                <span>Menu (<span id="final_nb_personnes">-</span> personnes × <span id="final_prix_unitaire">-</span>€)</span>
+                                <strong id="final_sous_total">-</strong>
+                            </div>
+                            <div class="tarif_line reduction" id="final_reduction_line" style="display: none;">
+                                <span>Réduction 10%</span>
+                                <strong id="final_reduction">-</strong>
+                            </div>
+                            <div class="tarif_line">
+                                <span>Frais de livraison <span id="distance_info"></span></span>
+                                <strong id="final_livraison">5,00 €</strong>
+                            </div>
+                            <div class="tarif_separator"></div>
+                            <div class="tarif_line total">
+                                <span>TOTAL TTC</span>
+                                <strong id="final_total">-</strong>
+                            </div>
+                            <div class="tarif_line acompte">
+                                <span>Acompte 30% à verser</span>
+                                <strong id="final_acompte">-</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cgv_accept">
+                    <label class="checkbox_label">
+                        <input type="checkbox" id="accept_cgv" required>
+                        <span>J'accepte les <a href="cgv.html" target="_blank">conditions générales de vente</a> et j'ai pris connaissance des <a href="#">conditions du menu</a></span>
+                    </label>
+                </div>
+
+                <div class="step_buttons">
+                    <button type="button" class="btn_prev" onclick="prevStep(2)">
+                        <span>←</span>
+                        Retour
+                    </button>
+                    <button type="submit" class="btn_submit_order" onclick="submitOrder(event)">
+                        ✓ Valider ma commande
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal sélection menu -->
+        <div class="modal" id="menuModal">
+            <div class="modal_content">
+                <span class="modal_close" onclick="closeMenuSelector()">&times;</span>
+                <h2>Choisir un autre menu</h2>
+                <div class="modal_menus">
+                    <div class="modal_menu_card" onclick="selectMenu('Menu Mariage', 75, 50)">
+                        <img src="menu-mariage.jpg" alt="Menu Mariage">
+                        <h4>Menu Mariage</h4>
+                        <p>75€/pers • Min. 50 pers</p>
+                    </div>
+                    <div class="modal_menu_card" onclick="selectMenu('Menu Anniversaire', 32, 20)">
+                        <img src="menu-anniversaire.jpg" alt="Menu Anniversaire">
+                        <h4>Menu Anniversaire</h4>
+                        <p>32€/pers • Min. 20 pers</p>
+                    </div>
+                    <div class="modal_menu_card" onclick="selectMenu('Menu Entreprise', 28, 30)">
+                        <img src="menu-entreprise.jpg" alt="Menu Entreprise">
+                        <h4>Menu Entreprise</h4>
+                        <p>28€/pers • Min. 30 pers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Confirmation -->
+        <div class="modal" id="confirmModal">
+            <div class="modal_content success">
+                <div class="success_icon">✓</div>
+                <h2>Commande enregistrée !</h2>
+                <p>Votre commande a été enregistrée avec succès.</p>
+                <p>Un email de confirmation vous a été envoyé à <strong id="confirm_email">-</strong></p>
+                <p class="confirm_info">Nous vous recontacterons sous 48h pour finaliser les détails.</p>
+                <button class="btn_submit" onclick="window.location.href='pageaccueil.html'">
+                    Retour à l'accueil
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="cat_footer">
+            <div class="contact">
+                <h3>Horaires d'ouverture</h3>
+                <ul>
+                    <li><strong>Lundi - Vendredi :</strong> 9h00 - 18h00</li>
+                    <li><strong>Samedi :</strong> 10h00 - 16h00</li>
+                </ul>
+                <br>
+                <p>📧 contact@vite-et-gourmand.fr</p>
+                <p>📞 05 56 XX XX XX</p>
+                <p>📍 Bordeaux, France</p>
+            </div>
+            <div class="CGV">
+                <h3>Informations</h3>
+                <ul>
+                    <li><a href="cgv.html">Conditions Générales de Vente</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="pagecontact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="infos_legales">
+                <h3>Mentions légales</h3>
+                <ul>
+                    <li><a href="mentions-legales.html">Mentions légales</a></li>
+                    <li><a href="#">Politique des cookies</a></li>
+                </ul>
+            </div>
+            <div class="reseaux_redirect">
+                <h3>Suivez-nous</h3>
+                <div class="social_icons">
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="LinkedIn">💼</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            <p>Vite & Gourmand - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script src="pagecommande.js"></script>
+</body>
+
+</html>

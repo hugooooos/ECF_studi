@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion ~ Vite & Gourmand</title>
+    <link rel="stylesheet" type="text/css" href="css/pageconnexion.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap');
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nom_entreprise">
+            <p>Vite & Gourmand</p>
+        </div>
+        <nav class="menu_deroulant">
+            <ul>
+                <li><a href="pageaccueil.html" class="active">Accueil</a></li>
+                <li><a href="pagemenuprincipal.html">Menus</a></li>
+                <li><a href="pagecontact.html">Contact</a></li>
+                <li><a href="pageconnexion.html" class="btn-connexion">Connexion</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="connexion_page">
+        <div class="connexion_container">
+            <!-- Formulaire de Connexion -->
+            <div class="form_box" id="connexion_form">
+                <h2 class="form_titre">Connexion</h2>
+                <form action="backend/login.php" method="post" id="loginForm">
+                    <div class="input_group">
+                        <label for="mail_connexion">E-mail *</label>
+                        <input type="email" id="mail_connexion" name="user_mail" placeholder="votre@email.fr" required>
+                    </div>
+                    <div class="input_group">
+                        <label for="password_connexion">Mot de passe *</label>
+                        <input type="password" id="password_connexion" name="user_password" placeholder="••••••••••"
+                            required minlength="10">
+                        <small class="input_hint">Minimum 10 caractères</small>
+                    </div>
+                    <div class="form_options">
+                        <label class="remember_me">
+                            <input type="checkbox" name="remember">
+                            <span>Se souvenir de moi</span>
+                        </label>
+                        <a href="#" class="forgot_password" onclick="showPasswordReset(); return false;">Mot de passe oublié?</a>
+                    </div>
+                    <button type="submit" class="btn_submit">Se connecter</button>
+                </form>
+                <p class="switch_form">
+                    Pas encore de compte?
+                    <a href="#" onclick="toggleForms(); return false;">Créer un compte</a>
+                </p>
+            </div>
+
+            <!-- Formulaire d'Inscription -->
+            <div class="form_box" id="inscription_form" style="display: none;">
+                <h2 class="form_titre">Inscription</h2>
+                <form action="backend/register.php" method="post" id="registerForm">
+                    <div class="input_group">
+                        <label for="nom_inscription">Nom complet *</label>
+                        <input type="text" id="nom_inscription" name="user_name" placeholder="Jean Dupont" required>
+                    </div>
+                    <div class="input_group">
+                        <label for="prenom_inscription">Prénom *</label>
+                        <input type="text" id="prenom_inscription" name="user_firstname" placeholder="Jean" required>
+                    </div>
+                    <div class="input_group">
+                        <label for="mail_inscription">E-mail *</label>
+                        <input type="email" id="mail_inscription" name="user_mail" placeholder="votre@email.fr"
+                            required>
+                    </div>
+                    <div class="input_group">
+                        <label for="tel_inscription">Téléphone (GSM) *</label>
+                        <input type="tel" id="tel_inscription" name="user_tel" placeholder="06 XX XX XX XX" required
+                            pattern="[0-9]{10}">
+                        <small class="input_hint">Format: 0612345678 (10 chiffres)</small>
+                    </div>
+                    <div class="input_group">
+                        <label for="adresse_inscription">Adresse postale *</label>
+                        <input type="text" id="adresse_inscription" name="user_address" 
+                            placeholder="123 Rue de la Gastronomie, 33000 Bordeaux" required>
+                    </div>
+                    <div class="input_group">
+                        <label for="password_inscription">Mot de passe *</label>
+                        <input type="password" id="password_inscription" name="user_password" placeholder="••••••••••"
+                            required minlength="10" 
+                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{10,}$">
+                        <small class="input_hint">Minimum 10 caractères : 1 majuscule, 1 minuscule, 1 chiffre, 1 caractère spécial</small>
+                    </div>
+                    <div class="input_group">
+                        <label for="password_confirm">Confirmer le mot de passe *</label>
+                        <input type="password" id="password_confirm" name="password_confirm" placeholder="••••••••••"
+                            required minlength="10">
+                    </div>
+                    <div class="form_checkbox">
+                        <label class="checkbox_label">
+                            <input type="checkbox" name="cgv" required>
+                            <span>J'accepte les <a href="cgv.html" target="_blank">conditions générales de vente</a> et la <a href="politique-confidentialite.html" target="_blank">politique de confidentialité</a> (RGPD) *</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn_submit">Créer mon compte</button>
+                </form>
+                <p class="switch_form">
+                    Déjà inscrit?
+                    <a href="#" onclick="toggleForms(); return false;">Se connecter</a>
+                </p>
+            </div>
+
+            <!-- Formulaire de réinitialisation de mot de passe -->
+            <div class="form_box" id="reset_password_form" style="display: none;">
+                <h2 class="form_titre">Mot de passe oublié</h2>
+                <p class="form_description">Entrez votre adresse e-mail pour recevoir un lien de réinitialisation.</p>
+                <form action="backend/reset_password.php" method="post" id="resetForm">
+                    <div class="input_group">
+                        <label for="mail_reset">E-mail *</label>
+                        <input type="email" id="mail_reset" name="user_mail" placeholder="votre@email.fr" required>
+                    </div>
+                    <button type="submit" class="btn_submit">Envoyer le lien</button>
+                </form>
+                <p class="switch_form">
+                    <a href="#" onclick="hidePasswordReset(); return false;">← Retour à la connexion</a>
+                </p>
+            </div>
+
+            <!-- Avantages de l'inscription -->
+            <div class="avantages_box">
+                <h3 class="avantages_titre">Pourquoi s'inscrire?</h3>
+                <ul class="avantages_liste">
+                    <li>
+                        <span class="avantage_icon">🎁</span>
+                        <div class="avantage_text">
+                            <strong>10% de réduction</strong>
+                            <p>Sur votre première commande</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="avantage_icon">⚡</span>
+                        <div class="avantage_text">
+                            <strong>Commandes rapides</strong>
+                            <p>Informations pré-enregistrées</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="avantage_icon">📦</span>
+                        <div class="avantage_text">
+                            <strong>Suivi de commandes</strong>
+                            <p>Historique et statut en temps réel</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="avantage_icon">⭐</span>
+                        <div class="avantage_text">
+                            <strong>Offres exclusives</strong>
+                            <p>Promotions réservées aux membres</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="avantage_icon">💚</span>
+                        <div class="avantage_text">
+                            <strong>Programme de fidélité</strong>
+                            <p>Cumulez des points à chaque achat</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="cat_footer">
+            <div class="contact">
+                <h3>Horaires d'ouverture</h3>
+                <ul>
+                    <li><strong>Lundi - Vendredi :</strong> 9h00 - 18h00</li>
+                    <li><strong>Samedi :</strong> 10h00 - 16h00</li>
+                    <li><strong>Dimanche :</strong> Fermé (sur commande)</li>
+                </ul>
+                <br>
+                <p>📧 contact@vite-et-gourmand.fr</p>
+                <p>📞 05 56 XX XX XX</p>
+                <p>📍 Bordeaux, France</p>
+            </div>
+            <div class="CGV">
+                <h3>Informations</h3>
+                <ul>
+                    <li><a href="cgv.html">Conditions Générales de Vente</a></li>
+                    <li><a href="politique-confidentialite.html">Politique de confidentialité</a></li>
+                    <li><a href="rgpd.html">RGPD</a></li>
+                </ul>
+            </div>
+            <div class="infos_legales">
+                <h3>Mentions légales</h3>
+                <ul>
+                    <li><a href="mentions-legales.html">Mentions légales</a></li>
+                    <li><a href="cookies.html">Politique des cookies</a></li>
+                </ul>
+            </div>
+            <div class="reseaux_redirect">
+                <h3>Suivez-nous</h3>
+                <div class="social_icons">
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="LinkedIn">💼</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            <p>© 2024 Vite & Gourmand - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script src="js/connexion.js"></script>
+    <script>
+        // Basique JS pour la démo - À remplacer par connexion.js
+        function toggleForms() {
+            const connexionForm = document.getElementById('connexion_form');
+            const inscriptionForm = document.getElementById('inscription_form');
+            const resetForm = document.getElementById('reset_password_form');
+
+            resetForm.style.display = 'none';
+            
+            if (connexionForm.style.display === 'none') {
+                connexionForm.style.display = 'block';
+                inscriptionForm.style.display = 'none';
+            } else {
+                connexionForm.style.display = 'none';
+                inscriptionForm.style.display = 'block';
+            }
+        }
+
+        function showPasswordReset() {
+            document.getElementById('connexion_form').style.display = 'none';
+            document.getElementById('inscription_form').style.display = 'none';
+            document.getElementById('reset_password_form').style.display = 'block';
+        }
+
+        function hidePasswordReset() {
+            document.getElementById('connexion_form').style.display = 'block';
+            document.getElementById('inscription_form').style.display = 'none';
+            document.getElementById('reset_password_form').style.display = 'none';
+        }
+
+        // Validation du mot de passe à l'inscription
+        document.getElementById('registerForm')?.addEventListener('submit', function(e) {
+            const password = document.getElementById('password_inscription').value;
+            const confirm = document.getElementById('password_confirm').value;
+            
+            if (password !== confirm) {
+                e.preventDefault();
+                alert('Les mots de passe ne correspondent pas !');
+                return false;
+            }
+        });
+    </script>
+</body>
+
+</html>

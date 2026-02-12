@@ -1,0 +1,644 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: rgb(0, 0, 0);
+    background-color: #FAF7F0;
+    font-family: "Golos Text", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+ html, body {
+    overflow-x: hidden;
+}
+/* ==========================================
+   HEADER MODERNE ET ÉLÉGANT
+   ========================================== */
+header {
+    background: linear-gradient(135deg, #1a3d2e 0%, #2D5016 50%, #4A5D23 100%);
+    padding: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.header_container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+/* Logo et nom entreprise */
+.nom_entreprise {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    user-select: none;
+}
+
+.logo_icon {
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, #8FBC8F, #A8D5BA);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    box-shadow: 0 4px 15px rgba(143, 188, 143, 0.3);
+    transition: all 0.3s ease;
+}
+
+.nom_entreprise:hover .logo_icon {
+    transform: rotate(-5deg) scale(1.05);
+}
+
+.entreprise_texte {
+    display: flex;
+    flex-direction: column;
+}
+
+.entreprise_nom {
+    font-size: 32px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.entreprise_slogan {
+    font-size: 13px;
+    font-weight: 400;
+    color: #A8D5BA;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Menu navigation */
+.menu_deroulant {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.menu_deroulant ul {
+    list-style: none;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.menu_deroulant ul li a {
+    text-decoration: none;
+    color: #d1c0c7;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu_deroulant ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #8FBC8F, #A8D5BA);
+    transition: width 0.3s ease;
+}
+
+.menu_deroulant ul li a:hover {
+    background-color: rgba(168, 213, 186, 0.15);
+    color: #ffffff;
+}
+
+.menu_deroulant ul li a:hover::before {
+    width: 70%;
+}
+
+.menu_deroulant ul li a.active {
+    background: linear-gradient(135deg, rgba(143, 188, 143, 0.3), rgba(168, 213, 186, 0.3));
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(143, 188, 143, 0.2);
+}
+
+/* Bouton connexion spécial */
+.menu_deroulant ul li a.btn-connexion {
+    background: linear-gradient(135deg, #8FBC8F, #A8D5BA);
+    color: #1a3d2e;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(143, 188, 143, 0.3);
+}
+
+.menu_deroulant ul li a.btn-connexion:hover {
+    background: linear-gradient(135deg, #A8D5BA, #8FBC8F);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(143, 188, 143, 0.4);
+}
+
+.menu_deroulant ul li a.btn-connexion::before {
+    display: none;
+}
+
+/* Burger menu pour mobile */
+.burger_menu {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.burger_menu span {
+    width: 30px;
+    height: 3px;
+    background: #ffffff;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.burger_menu:hover span {
+    background: #A8D5BA;
+}
+
+/* ==========================================
+   PAGE DES MENUS
+   ========================================== */
+.menus_page {
+    flex: 1;
+    background: linear-gradient(135deg, #A8D5BA 0%, #FEFAE0 50%, #8FBC8F 100%);
+    padding: 60px 20px;
+}
+
+.menus_intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+}
+
+.menus_intro h1 {
+    font-size: 48px;
+    font-weight: 800;
+    color: #2D5016;
+    margin-bottom: 20px;
+}
+
+.menus_intro p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   CONTAINER DES MENUS
+   ========================================== */
+.menus_container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+/* ==========================================
+   CARTES DE MENU
+   ========================================== */
+.menu_card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu_card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Image du menu */
+.menu_image {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+}
+
+.menu_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.menu_card:hover .menu_image img {
+    transform: scale(1.1);
+}
+
+.menu_badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.menu_badge.noel {
+    background: linear-gradient(135deg, #c41e3a, #8b0000);
+}
+
+.menu_badge.anniversaire {
+    background: linear-gradient(135deg, #ff6b9d, #c239b3);
+}
+
+.menu_badge.mariage {
+    background: linear-gradient(135deg, #e8c547, #d4a93e);
+}
+
+.menu_badge.entreprise {
+    background: linear-gradient(135deg, #0077b5, #004e7a);
+}
+
+.menu_badge.paques {
+    background: linear-gradient(135deg, #98d8c8, #6bcf7f);
+}
+
+.menu_badge.cocktail {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+}
+
+.menu_badge.brunch {
+    background: linear-gradient(135deg, #ffa751, #ffe259);
+}
+
+.menu_badge.bapteme {
+    background: linear-gradient(135deg, #a8edea, #fed6e3);
+}
+
+/* Contenu du menu */
+.menu_content {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.menu_titre {
+    font-size: 26px;
+    font-weight: 700;
+    color: #2D5016;
+    margin-bottom: 15px;
+}
+
+.menu_description {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+/* Caractéristiques */
+.menu_caracteristiques {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.badge {
+    padding: 6px 14px;
+    background: linear-gradient(135deg, #f0f0f0, #e8e8e8);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #2D5016;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.badge.option {
+    background: linear-gradient(135deg, #8FBC8F, #A8D5BA);
+    color: white;
+}
+
+/* Footer de la carte */
+.menu_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 2px solid #f0f0f0;
+}
+
+.menu_prix {
+    font-size: 22px;
+    font-weight: 700;
+    color: #2D5016;
+}
+
+.btn_commander {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #2D5016, #4A5D23);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(45, 80, 22, 0.3);
+}
+
+.btn_commander:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(45, 80, 22, 0.4);
+}
+
+/* ==========================================
+   SECTION INFORMATIONS
+   ========================================== */
+.menus_info {
+    max-width: 1400px;
+    margin: 60px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.info_block {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.info_block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.info_block h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2D5016;
+    margin-bottom: 15px;
+}
+
+.info_block p {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 60px 20px 20px;
+    margin-top: 60px;
+}
+
+.cat_footer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+}
+
+.cat_footer h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #e67e22;
+}
+
+.cat_footer ul {
+    list-style: none;
+}
+
+.cat_footer ul li {
+    margin-bottom: 8px;
+}
+
+.cat_footer a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.cat_footer a:hover {
+    color: #e67e22;
+}
+
+.cat_footer p {
+    color: #bdc3c7;
+    margin-bottom: 8px;
+}
+
+.social_icons {
+    display: flex;
+    gap: 15px;
+    font-size: 28px;
+}
+
+.social_icons a {
+    transition: transform 0.3s ease;
+}
+
+.social_icons a:hover {
+    transform: scale(1.2);
+}
+
+.footer_bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer_bottom p {
+    color: #95a5a6;
+    font-size: 14px;
+}
+
+/* ==========================================
+   RESPONSIVE - TABLETTE
+   ========================================== */
+@media (max-width: 1024px) {
+    .header_container {
+        padding: 20px 30px;
+    }
+
+    .menus_container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .menus_info {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header_container {
+        padding: 15px 20px;
+    }
+
+    .entreprise_nom {
+        font-size: 26px;
+    }
+
+    .logo_icon {
+        width: 45px;
+        height: 45px;
+        font-size: 24px;
+    }
+
+    .menu_deroulant {
+        display: none;
+    }
+
+    .menu_deroulant.active {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, #1a3d2e 0%, #2D5016 100%);
+        padding: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .menu_deroulant.active ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .menu_deroulant.active ul li {
+        width: 100%;
+    }
+
+    .menu_deroulant.active ul li a {
+        display: block;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .burger_menu {
+        display: flex;
+    }
+
+    .menus_intro h1 {
+        font-size: 36px;
+    }
+
+    .menus_page {
+        padding: 40px 15px;
+    }
+
+    .menu_content {
+        padding: 25px;
+    }
+
+    .menu_footer {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+
+    .btn_commander {
+        text-align: center;
+    }
+}
+
+/* ==========================================
+   RESPONSIVE - MOBILE
+   ========================================== */
+@media (max-width: 480px) {
+    .header_container {
+        padding: 12px 15px;
+    }
+
+    .entreprise_nom {
+        font-size: 22px;
+    }
+
+    .entreprise_slogan {
+        font-size: 11px;
+    }
+
+    .logo_icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .menus_intro h1 {
+        font-size: 32px;
+    }
+
+    .menus_intro p {
+        font-size: 16px;
+    }
+
+    .menus_page {
+        padding: 30px 10px;
+    }
+
+    .menu_image {
+        height: 220px;
+    }
+
+    .menu_content {
+        padding: 20px;
+    }
+
+    .menu_titre {
+        font-size: 22px;
+    }
+
+    .menu_description {
+        font-size: 14px;
+    }
+
+    .menu_prix {
+        font-size: 20px;
+    }
+
+    .btn_commander {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .info_block {
+        padding: 25px 20px;
+    }
+}
